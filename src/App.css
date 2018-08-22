@@ -4,11 +4,11 @@
 }
 
 body {
-  background: #9CECFB;
+  background: #727cf5;
   /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #0052D4, #65C7F7, #9CECFB);
+  background: -webkit-linear-gradient(135deg,#8f75da 0,#727cf5 60%);
   /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #0052D4, #65C7F7, #9CECFB);
+  background: linear-gradient(135deg,#8f75da 0,#727cf5 60%)
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
@@ -110,4 +110,13 @@ body {
 .btn-facebook {
   color: white;
   background-color: #3b5998;
+}
+
+.btn-signup {
+  color: white;
+  background-color: #17a750;
+}
+
+.btn-signup:hover {
+
 }
