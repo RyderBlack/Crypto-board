@@ -38,28 +38,49 @@ export default class Login extends Component {
 
     render() {
         return(
-            <div className="col-md-6">
-                <form>
-                    <div className="form-group">
-                        <label for="inputEmail">Email adress</label>
-                        <input value={this.state.email} onChange={this.handleChange} type="email" name="email"
-                        className="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email"/>
-                        <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
-                    </div>
+        <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div className="card card-signin my-5">
 
-                    <div className="form-group">
-                        <label for="inputPassword">Password</label>
-                        <input value={this.state.password} onChange={this.handleChange} type="password" name="password"
-                        className="form-control" id="inputPassword" placeholder="Password"/>
-                    </div>
+              <div className="card-body">
+                <h5 className="card-title text-center">Sign In</h5>
 
-                    <button type="submit" onClick={this.login} className="btn btn-primary">Login</button>
-                    <button onClick={this.signup} style={{'margin-left': '25px'}} className="btn btn-success">Signup</button>
+                <form className="form-signin">
+
+                  <div className="form-label-group">
+                    <input value={this.state.email} onChange={this.handleChange} type="email" name="email" 
+                    className="form-control" id="inputEmail" placeholder="Enter email" required autofocus/>
+                    <label for="inputEmail">Email address</label>
+                  </div>
+    
+                  <div className="form-label-group">
+                    <input value={this.state.password} onChange={this.handleChange} type="password" name="password"
+                    className="form-control" id="inputPassword" placeholder="Password" required/>
+                    <label for="inputPassword">Password</label>
+                  </div>
+    
+                  <div className="custom-control custom-checkbox mb-3">
+                    <input type="checkbox" className="custom-control-input" id="customCheck1" />
+                    <label className="custom-control-label" for="customCheck1">Remember password</label>
+                  </div>
+
+                  <button className="btn btn-lg btn-primary btn-block text-uppercase" type="submit" onClick={this.login}>Log in</button>
+                  <button className="btn btn-lg btn-primary btn-block text-uppercase" onClick={this.signup}>Sign up</button>
+                  <hr className="my-4" />
+                  <button className="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i className="fab fa-google mr-2"></i> Sign in with Google</button>
+                  <button className="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i className="fab fa-facebook-f mr-2"></i> Sign in with Facebook</button>
                 </form>
+
+              </div>
             </div>
+        </div>
+
+
         )
     }
 
-
-
 }
+
+   
+
+
+
