@@ -1,12 +1,26 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
-import authFirebase from './config/Auth';
+//import {Link} from 'react-router-dom';
+import authFirebase from '../config/Auth';
 
 export default class Login extends Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            email : '',
+            password: ''
+        }
+        this.login = this.login.bind(this);
+        this.handleChange = this.handleChange.bind(this)
+    }
 
+    login(e) {
+        e.preventDefault();
+        authFirebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
+        .then(u => {})
+        .catch((error) => {
+            console.log('error' + error);
+        }) 
     }
 
     handleChange(e) {
@@ -31,7 +45,7 @@ export default class Login extends Component {
                     </div>
 
                     <button type="submit" onClick={this.login} className="btn btn-primary">Login</button>
-                    <button onClick={this.signup} style="marginLeft: 25px" className="btn btn-success">Signup</button>
+                    <button onClick={this.signup} style={{'margin-left': '25px'}} className="btn btn-success">Signup</button>
                 </form>
             </div>
         )

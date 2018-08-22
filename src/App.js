@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import authFirebase from './config/Auth';
 import Login from './components/Login';
+import Home from './components/Home';
 
 class App extends Component {
 
@@ -31,7 +32,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {this.state.user ? (<Home />) : (<Login />)}
+        <div className="container">
+          <div className="row justify-content-center">
+            {this.state.user ? (<Home />) : (<Login />)}
+          </div>
+        </div>
       </div>
     );
   }
