@@ -11,6 +11,7 @@ export default class Home extends Component {
     logout() {
         authFirebase.auth().signOut();
     }
+    
     render() {
         return (
             <div className="col-md-6">

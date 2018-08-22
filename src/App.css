@@ -114,9 +114,21 @@ body {
 
 .btn-signup {
   color: white;
-  background-color: #17a750;
+  background-color:#a55eea;
+  border: none
 }
 
 .btn-signup:hover {
+  color: white;
+  background-color:#8854d0;
+  border: none
+}
 
+.hidden {
+  display: none
+}
+
+.show {
+  display: block;
+  margin-top: 20px
 }
