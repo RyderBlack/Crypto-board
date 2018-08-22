@@ -11,13 +11,22 @@ export default class Login extends Component {
             password: ''
         }
         this.login = this.login.bind(this);
-        this.handleChange = this.handleChange.bind(this)
+        this.signup = this.signup.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
     login(e) {
         e.preventDefault();
         authFirebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
         .then(u => {})
+        .catch((error) => {
+            console.log('error' + error);
+        }) 
+    }
+
+    signup(e) {
+        e.preventDefault();
+        authFirebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
         .catch((error) => {
             console.log('error' + error);
         }) 
