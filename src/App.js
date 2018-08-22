@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import authFirebase from './config/Auth'
+import authFirebase from './config/Auth';
+import Login from './components/Login';
 
 class App extends Component {
 
