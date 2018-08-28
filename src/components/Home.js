@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import authFirebase from '../config/Auth';
+import axios from 'axios';
 
 export default class Home extends Component {
 
@@ -16,6 +17,21 @@ export default class Home extends Component {
         authFirebase.auth().signOut();
     }
 
+    componentDidMount() {
+        const config = {
+            headers: {
+              accept: 'application/json',
+            },
+            data: {},
+          };
+        axios.get('https://min-api.cryptocompare.com/data/all/coinlist',config)
+          .then(res => {
+            console.log(res.data)
+            const currencies = res.data;
+            this.setState({ currencies: currencies });
+          })
+      }
+
    /* componentWillMount() {
         fetch('')
             .then((response) => response.json())
@@ -30,7 +46,7 @@ export default class Home extends Component {
                 console.log(error);
             })
     }
-    */
+    
 
    componentDidMount() {
     this.callApi()
@@ -46,7 +62,10 @@ export default class Home extends Component {
 
     return body;
   };
-    
+    */
+
+
+
     render() {
         return (
             <div className="col-md-6">
