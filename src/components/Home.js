@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import authFirebase from '../config/Auth';
 import axios from 'axios';
+import SideBar from './SideBar';
 
 export default class Home extends Component {
 
@@ -26,10 +27,11 @@ export default class Home extends Component {
           };
         axios.get('https://min-api.cryptocompare.com/data/all/coinlist',config)
           .then(res => {
-            console.log(res.data.Data)
+            //console.log(res.data.Data)
             const currencies = res.data;
             this.setState({ currencies: currencies });
           })
+          console.log(this.state.currencies)
       }
 
 
@@ -37,6 +39,7 @@ export default class Home extends Component {
     render() {
         return (
             <div className="col-md-6">
+            <SideBar />
                 <h1>You are Home.</h1>
                 <p className="App-intro">{this.state.response}</p>
                 <button onClick={this.logout} className="btn btn-warning">Logout</button>
