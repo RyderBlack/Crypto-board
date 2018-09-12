@@ -20,15 +20,16 @@ export default class Home extends Component {
             },
             data: {},
           };
-        axios.get('https://min-api.cryptocompare.com/data/all/coinlist',config)
+        //axios.get('https://min-api.cryptocompare.com/data/all/coinlist',config)
+        axios.get('https://min-api.cryptocompare.com/data/top/exchanges?fsym=BTC&tsym=USD')
           .then(res => {
-            console.log(res.data)
-            const currencies = res.data;
+            console.log(res.data.Data)
+            const currencies = res.data.Data;
         
             this.setState({ currencies: currencies });
           })
           console.log(this.state.currencies)
-      }
+    }
 
 
 
@@ -39,7 +40,11 @@ export default class Home extends Component {
                     <div className="col-md-10">
                         <h1>You are Home.</h1>
                         {/*<p className="App-intro">{this.state.currencies[0].title}</p>*/}
-                        
+                        {this.state.currencies.map((currency) => {
+                            return(
+                                <p id={currency}>{currency.exchange}</p>
+                            )
+                        })}
                     </div>
                 </div>      
         )
