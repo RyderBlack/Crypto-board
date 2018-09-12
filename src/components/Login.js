@@ -45,6 +45,7 @@ export default class Login extends Component {
 
     render() {
         return(
+            <div className="row justify-content-center">
         <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
             <div className="card card-signin my-5">
 
@@ -87,7 +88,7 @@ export default class Login extends Component {
               </div>
             </div>
         </div>
-
+        </div>
 
         )
     }

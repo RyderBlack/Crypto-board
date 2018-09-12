@@ -39,16 +39,14 @@ export default class Home extends Component {
 
     render() {
         return (
-            <div className="container-fluid home">
-                <div className="row">
+                <div className="row home">
                     <SideBar />
-                    <div className="col-9 col-sm-10 col-md-10 col-lg-11 col-xl-11">
+                    <div className="col-md-10">
                         <h1>You are Home.</h1>
                         <p className="App-intro">{this.state.response}</p>
                         <button onClick={this.logout} className="btn btn-warning">Logout</button>
                     </div>
-                </div>
-            </div>            
+                </div>      
         )
     }
 }

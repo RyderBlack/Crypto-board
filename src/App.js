@@ -33,7 +33,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="container">
-          <div className="row justify-content-center">
+          <div>
             {this.state.user ? (<Home />) : (<Login />)}
           </div>
         </div>
