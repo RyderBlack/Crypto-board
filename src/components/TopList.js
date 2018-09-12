@@ -23,7 +23,7 @@ export default class Home extends Component {
         //axios.get('https://min-api.cryptocompare.com/data/all/coinlist',config)
         axios.get('https://min-api.cryptocompare.com/data/top/exchanges?fsym=BTC&tsym=USD')
           .then(res => {
-            console.log(res.data.Data)
+            //console.log(res.data.Data)
             const currencies = res.data.Data;
         
             this.setState({ currencies: currencies });
@@ -39,10 +39,11 @@ export default class Home extends Component {
                        
                         {/*<p className="App-intro">{this.state.currencies[0].title}</p>*/}
                         
-                        <h4>Top of the day</h4>
+                        <h3 className="toplist-title">Top of the day</h3>
                         {this.state.currencies.map((currency) => {
+                            const vol24Rounded = Math.round(currency.volume24h*100)/100;
                             return(
-                                <p id={currency}>{currency.exchange}</p>
+                                <p id={currency}>{currency.exchange}: {vol24Rounded}</p>
                             )
                         })}
                     </div>   
