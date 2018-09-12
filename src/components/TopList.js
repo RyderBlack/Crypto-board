@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import SideBar from './SideBar';
-import TopList from './TopList';
 
 export default class Home extends Component {
 
@@ -36,13 +35,17 @@ export default class Home extends Component {
 
     render() {
         return (
-                <div className="row home">
-                    <SideBar />
-                    <div className="col-md-10">
-                        <h1>You are Home.</h1>
-                        <TopList/>
-                    </div>
-                </div>      
+                    <div className="col-md-3 toplist">
+                       
+                        {/*<p className="App-intro">{this.state.currencies[0].title}</p>*/}
+                        
+                        <h4>Top of the day</h4>
+                        {this.state.currencies.map((currency) => {
+                            return(
+                                <p id={currency}>{currency.exchange}</p>
+                            )
+                        })}
+                    </div>   
         )
     }
 }
