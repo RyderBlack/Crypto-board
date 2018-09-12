@@ -123,8 +123,15 @@
   height: 100vh;
   width: 300px;
   background: linear-gradient(135deg,#8f75da 0,#727cf5 60%);
+  display: flex;
+  align-content: center;
+  justify-content: center
 }
 
 .home {
   background: #fafbfe;
+}
+
+.btn-logout {
+  align-self: center
 }

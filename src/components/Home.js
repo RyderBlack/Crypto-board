@@ -13,9 +13,7 @@ export default class Home extends Component {
        
     }
 
-    
-
-    componentDidMount() {
+    componentWillMount() {
         const config = {
             headers: {
               accept: 'application/json',
@@ -24,8 +22,8 @@ export default class Home extends Component {
           };
         axios.get('https://min-api.cryptocompare.com/data/all/coinlist',config)
           .then(res => {
-            //console.log(res.data.Data)
-            const currencies = res.data.Data;
+            console.log(res.data)
+            const currencies = res.data;
         
             this.setState({ currencies: currencies });
           })
@@ -40,7 +38,7 @@ export default class Home extends Component {
                     <SideBar />
                     <div className="col-md-10">
                         <h1>You are Home.</h1>
-                        <p className="App-intro">{this.state.response}</p>
+                        {/*<p className="App-intro">{this.state.currencies[0].title}</p>*/}
                         
                     </div>
                 </div>      
