@@ -122,11 +122,9 @@
 .sidenav {
   height: 100vh;
   width: 300px;
-  background: #a55eea;
-  border: 1px solid black;
+  background: linear-gradient(135deg,#8f75da 0,#727cf5 60%);
 }
 
 .home {
-  border: 1px solid yellow;
-  width: 100%;
+  background: #fafbfe;
 }

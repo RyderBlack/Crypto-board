@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import authFirebase from '../config/Auth';
 import axios from 'axios';
 import SideBar from './SideBar';
 
@@ -11,12 +10,10 @@ export default class Home extends Component {
             currencies : [],
             response: ''
         }
-        this.logout = this.logout.bind(this);
+       
     }
 
-    logout() {
-        authFirebase.auth().signOut();
-    }
+    
 
     componentDidMount() {
         const config = {
@@ -44,7 +41,7 @@ export default class Home extends Component {
                     <div className="col-md-10">
                         <h1>You are Home.</h1>
                         <p className="App-intro">{this.state.response}</p>
-                        <button onClick={this.logout} className="btn btn-warning">Logout</button>
+                        
                     </div>
                 </div>      
         )
