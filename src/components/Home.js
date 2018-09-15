@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import SideBar from './SideBar';
 import TopList from './TopList';
 import Moment from 'react-moment';
+import BtcPrice from './BtcPrice';
 
 export default class Home extends Component {
 
@@ -27,6 +28,7 @@ export default class Home extends Component {
                         </div>
                         <h1>You are Home.</h1>
                         <TopList/>
+                        <BtcPrice />
                     </div>
                 </div>      
         )
