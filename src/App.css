@@ -162,6 +162,11 @@
   border: 5px solid #727cf5;
   border-width: 0 0 5px;
   outline: 0;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+  
   margin-bottom: 10px;
+  box-shadow: 5px 3px 10px 1px rgba(154,161,171,.15);
+}
+
+.search-input:focus{
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
 }
