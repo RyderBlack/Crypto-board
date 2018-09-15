@@ -23,7 +23,7 @@ export default class Home extends Component {
                     <div className="col-md-10">
                         <div className="row">
                             <input type="text" placeholder="Enter a currency name" onClick={this.searchCurrency} className="search-input" ref={input => this.search = input}/> 
-                            <Moment format="MM/DD/YYYY HH:mm" className="dateTime">{new Date()}</Moment>
+                            <Moment format="MM/DD/YYYY HH:mm:ss" className="dateTime">{new Date()}</Moment>
                         </div>
                         <h1>You are Home.</h1>
                         <TopList/>
