@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import SideBar from './SideBar';
 
 export default class Home extends Component {
 
@@ -14,12 +13,12 @@ export default class Home extends Component {
     }
 
     componentWillMount() {
-        const config = {
+        /*const config = {
             headers: {
               accept: 'application/json',
             },
             data: {},
-          };
+          }; */
         //axios.get('https://min-api.cryptocompare.com/data/all/coinlist',config)
         axios.get('https://min-api.cryptocompare.com/data/top/exchanges?fsym=BTC&tsym=USD')
           .then(res => {
@@ -28,7 +27,7 @@ export default class Home extends Component {
         
             this.setState({ currencies: currencies });
           })
-          console.log(this.state.currencies)
+          //console.log(this.state.currencies)
     }
 
 
@@ -39,11 +38,11 @@ export default class Home extends Component {
                        
                         {/*<p className="App-intro">{this.state.currencies[0].title}</p>*/}
                         
-                        <h3 className="toplist-title">Top of the day</h3>
+                        <h2 className="toplist-title">Top of the day</h2>
                         {this.state.currencies.map((currency) => {
                             const vol24Rounded = Math.round(currency.volume24h*100)/100;
                             return(
-                                <p id={currency}>{currency.exchange}: {vol24Rounded}</p>
+                                <p key={currency.volume24h}>{currency.exchange}: {vol24Rounded}</p>
                             )
                         })}
                     </div>   

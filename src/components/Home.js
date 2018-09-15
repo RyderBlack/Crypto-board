@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import axios from 'axios';
+//import axios from 'axios';
 import SideBar from './SideBar';
 import TopList from './TopList';
 
@@ -14,31 +14,15 @@ export default class Home extends Component {
        
     }
 
-    componentWillMount() {
-        const config = {
-            headers: {
-              accept: 'application/json',
-            },
-            data: {},
-          };
-        //axios.get('https://min-api.cryptocompare.com/data/all/coinlist',config)
-        axios.get('https://min-api.cryptocompare.com/data/top/exchanges?fsym=BTC&tsym=USD')
-          .then(res => {
-            console.log(res.data.Data)
-            const currencies = res.data.Data;
-        
-            this.setState({ currencies: currencies });
-          })
-          console.log(this.state.currencies)
-    }
-
-
 
     render() {
         return (
                 <div className="row home">
                     <SideBar />
                     <div className="col-md-10">
+                        <div className="row">
+                            <input type="text" placeholder="Enter a currency name" onClick={this.searchCurrency} className="search-input" ref={input => this.search = input}/> 
+                        </div>
                         <h1>You are Home.</h1>
                         <TopList/>
                     </div>
