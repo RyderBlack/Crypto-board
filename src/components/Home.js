@@ -24,6 +24,7 @@ export default class Home extends Component {
                             <input type="text" placeholder="Enter a currency name" onClick={this.searchCurrency} className="search-input" ref={input => this.search = input}/> 
                         </div>
                         <h1>You are Home.</h1>
+                         {console.log(new Date())}
                         <TopList/>
                     </div>
                 </div>      
