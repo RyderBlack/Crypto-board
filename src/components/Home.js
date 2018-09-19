@@ -27,8 +27,10 @@ export default class Home extends Component {
                             <Moment format="MM/DD/YYYY HH:mm:ss" className="dateTime">{new Date()}</Moment>
                         </div>
                         <h1>You are Home.</h1>
-                        <TopList/>
-                        <BtcPrice />
+                        <div className="row">
+                            <TopList/>
+                            <BtcPrice />
+                        </div>
                     </div>
                 </div>      
         )

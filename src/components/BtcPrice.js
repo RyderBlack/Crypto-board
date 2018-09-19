@@ -20,15 +20,18 @@ export default class Home extends Component {
             },
             data: {},
           }; */
-        //axios.get('https://min-api.cryptocompare.com/data/all/coinlist',config)
-        axios.get('https://min-api.cryptocompare.com/data/histoday?fsym=BTC&tsym=USD&limit=10')
+        axios.get('https://min-api.cryptocompare.com/data/all/coinlist',config)
+       // axios.get('https://min-api.cryptocompare.com/data/histoday?fsym=BTC&tsym=USD&limit=10')
           .then(res => {
-            console.log(res.data.Data)
+            //console.log(res.data.Data)
             const priceBTC = res.data.Data;
-        
-            this.setState({ priceBTC: priceBTC });
+        priceBTC.map((coins) => {
+            return this.setState({ currencies: coins.priceBTC })
+            
+        })
+            //this.setState({ priceBTC: priceBTC });
           })
-          //console.log(this.state.currencies)
+          console.log(this.state.currencies)
     }
 
 
@@ -43,7 +46,7 @@ export default class Home extends Component {
                         {this.state.priceBTC.map((price) => {
                            
                             return(
-                                <p>priceBTC</p>
+                                <p>priceBTC </p>
                             )
                         })}
                     </div>   
