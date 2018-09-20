@@ -23,12 +23,9 @@ export default class Home extends Component {
         axios.get('https://min-api.cryptocompare.com/data/all/coinlist',config)
        // axios.get('https://min-api.cryptocompare.com/data/histoday?fsym=BTC&tsym=USD&limit=10')
           .then(res => {
-            console.log(res.data.Data)
+            //console.log(res.data.Data)
             const priceBTC = res.data.Data;
-        priceBTC.map((coins) => {
-            return this.setState({ currencies: coins })
-            
-        })
+        this.state.currencies.push(priceBTC);
             //this.setState({ priceBTC: priceBTC });
           })
           console.log(this.state.currencies)
