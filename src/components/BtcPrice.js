@@ -14,19 +14,19 @@ export default class Home extends Component {
     }
 
     componentDidMount() {
-        /*const config = {
+        const config = {
             headers: {
               accept: 'application/json',
             },
             data: {},
-          }; */
+          };
         axios.get('https://min-api.cryptocompare.com/data/all/coinlist',config)
        // axios.get('https://min-api.cryptocompare.com/data/histoday?fsym=BTC&tsym=USD&limit=10')
           .then(res => {
             console.log(res.data.Data)
             const priceBTC = res.data.Data;
         priceBTC.map((coins) => {
-            return this.setState({ currencies: coins.priceBTC })
+            return this.setState({ currencies: coins })
             
         })
             //this.setState({ priceBTC: priceBTC });
