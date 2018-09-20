@@ -13,7 +13,7 @@ export default class Home extends Component {
        
     }
 
-    componentDidMount() {
+    componentWillMount() {
         const config = {
             headers: {
               accept: 'application/json',
@@ -24,11 +24,12 @@ export default class Home extends Component {
        // axios.get('https://min-api.cryptocompare.com/data/histoday?fsym=BTC&tsym=USD&limit=10')
           .then(res => {
         //console.log(res.data.Data)
-            const priceBTC = res.data.Data;
-        this.state.currencies.push(priceBTC);
-            //this.setState({ priceBTC: priceBTC });
+            const currenciez = res.data;
+            console.log(currenciez.Data)
+        //this.state.currencies.push(priceBTC);
+            this.setState({ currencies: res.data.Data });
           })
-          console.log(this.state.currencies)
+        //console.log(this.state.currencies)
     }
 
 
@@ -37,11 +38,11 @@ export default class Home extends Component {
         return (
                     <div className="col-md-3 toplist">
                        
-                        {/*this.state.currencies[0].map((currency) => { 
+                        {this.state.currencies.map((currency) => { 
                             return (
                                 <p className="App-intro">{ currency.FullName }</p>
                                 )}
-                            )*/}
+                            )}
                         
                         <h2 className="toplist-title">Bitcoin / USD <span>(daily)</span></h2>
                         {this.state.priceBTC.map((price) => {
