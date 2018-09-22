@@ -21,13 +21,12 @@ export default class Home extends Component {
             data: {},
           };
         axios.get('https://min-api.cryptocompare.com/data/all/coinlist',config)
-       // axios.get('https://min-api.cryptocompare.com/data/histoday?fsym=BTC&tsym=USD&limit=10')
-          .then(res => {
+             .then(res => {
         //console.log(res.data.Data)
-            const currenciez = res.data;
-            console.log(currenciez.Data)
+            const currenciez = res.data.Data;
+            console.log(currenciez["ETH"])
         //this.state.currencies.push(priceBTC);
-            this.setState({ currencies: res.data.Data });
+            this.setState({ currencies: currenciez["ETH"] });
           })
         //console.log(this.state.currencies)
     }
