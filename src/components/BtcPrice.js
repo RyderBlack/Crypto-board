@@ -44,12 +44,7 @@ export default class Home extends Component {
                             )*/}
                         
                         <h2 className="toplist-title">Bitcoin / USD <span>(daily)</span></h2>
-                        {this.state.priceBTC.map((price) => {
-                           
-                            return(
-                                <p>priceBTC </p>
-                            )
-                        })}
+                        <p>{this.state.currencies.FullName}</p>
                     </div>   
         )
     }
