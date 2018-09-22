@@ -38,11 +38,11 @@ export default class Home extends Component {
         return (
                     <div className="col-md-3 toplist">
                        
-                        {this.state.currencies.map((currency) => { 
+                        {/*this.state.currencies.map((currency) => { 
                             return (
                                 <p className="App-intro">{ currency.FullName }</p>
-                                )}
                             )}
+                            )*/}
                         
                         <h2 className="toplist-title">Bitcoin / USD <span>(daily)</span></h2>
                         {this.state.priceBTC.map((price) => {
