@@ -6,8 +6,9 @@ export default class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            currencies : {},
+            currencies : [],
             priceBTC: [],
+            coins: [],
             response: ''
         }
        
@@ -23,14 +24,18 @@ export default class Home extends Component {
         axios.get('https://min-api.cryptocompare.com/data/all/coinlist',config)
              .then(res => {
         //console.log(res.data.Data)
-            let currenciez = res.data.Data;
+            let coinz = res.data.Data;
             /*currenciez = currenciez.map((currency) => {
                 return this.setState({ currenciez: currency });
             })*/
             //console.log(currenciez)
-            this.setState({ currencies: currenciez });
+            this.setState({ coins: coinz });
           })
-        console.log(this.state.currencies)
+          for( let i = 0; i < this.state.coins.length;i++) {
+            console.log(this.state.coins[i].FullName)
+
+          }
+        //console.log(this.state.currencies)
     }
 
 
@@ -39,7 +44,7 @@ export default class Home extends Component {
         return (
                     <div className="col-md-3 toplist">
                        
-                        {/*this.state.currencies.map((currency) => { 
+                        {/*this.state.coins.map((currency) => { 
                             return (
                                 <p className="App-intro">{ currency.FullName }</p>
                             )}
