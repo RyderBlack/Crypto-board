@@ -25,7 +25,7 @@ export default class Home extends Component {
              .then(res => {
         //console.log(res.data.Data)
             let prices = res.data.Data;
-            //console.log(currenciez)
+            console.log(prices)
             this.setState({ priceBTC: prices });
           })
         console.log(this.state.priceBTC)
