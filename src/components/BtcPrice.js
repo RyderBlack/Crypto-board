@@ -14,28 +14,21 @@ export default class Home extends Component {
        
     }
 
-    componentWillMount() {
+    componentDidMount() {
         const config = {
             headers: {
               accept: 'application/json',
             },
-            data: {},
+            data: {}
           };
-        axios.get('https://min-api.cryptocompare.com/data/all/coinlist',config)
+        axios.get('https://min-api.cryptocompare.com/data/histoday?fsym=BTC&tsym=USD&limit=10',config)
              .then(res => {
         //console.log(res.data.Data)
-            let coinz = res.data.Data;
-            /*currenciez = currenciez.map((currency) => {
-                return this.setState({ currenciez: currency });
-            })*/
+            let prices = res.data.Data;
             //console.log(currenciez)
-            this.setState({ coins: coinz });
+            this.setState({ priceBTC: prices });
           })
-          for( let i = 0; i < this.state.coins.length;i++) {
-            console.log(this.state.coins[i].FullName)
-
-          }
-        //console.log(this.state.currencies)
+        console.log(this.state.priceBTC)
     }
 
 
@@ -44,11 +37,9 @@ export default class Home extends Component {
         return (
                     <div className="col-md-3 toplist">
                        
-                        {/*this.state.coins.map((currency) => { 
-                            return (
-                                <p className="App-intro">{ currency.FullName }</p>
-                            )}
-                            )*/}
+                        {this.state.coins.map((coin) => { 
+                            console.log(coin.FullName)
+                            })}
                         
                         <h2 className="toplist-title">Bitcoin / USD <span>(daily)</span></h2>
                         <p>{/*this.state.currencies.FullName*/}</p>
