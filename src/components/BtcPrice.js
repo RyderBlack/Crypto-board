@@ -1,5 +1,18 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import { timeParse } from "d3-time-format";
+import { tsv } from "d3-request";
+
+var parseDate = timeParse("%Y-%m-%d");
+
+tsv("path/to/data.tsv", function(err, data) {
+    data.forEach((d, i) => {
+        d.date = new Date(parseDate(d.date).getTime());
+        d.open = +d.open;
+        d.high = +d.high;
+        d.low = +d.low;
+        d.close = +d.close;
+    });
 
 export default class Home extends Component {
 
