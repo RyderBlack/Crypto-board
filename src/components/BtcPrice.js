@@ -3,7 +3,7 @@ import axios from 'axios';
 import { timeParse } from "d3-time-format";
 import { tsv } from "d3-request";
 
-var parseDate = timeParse("%Y-%m-%d");
+const parseDate = timeParse("%Y-%m-%d");
 
 tsv("path/to/data.tsv", function(err, data) {
     data.forEach((d, i) => {
