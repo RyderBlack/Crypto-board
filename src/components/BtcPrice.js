@@ -1,18 +1,8 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import { timeParse } from "d3-time-format";
-import { tsv } from "d3-request";
+//import { tsv } from "d3-request";
 
-const parseDate = timeParse("%Y-%m-%d");
-
-tsv("path/to/data.tsv", function(err, data) {
-    data.forEach((d, i) => {
-        d.date = new Date(parseDate(d.date).getTime());
-        d.open = +d.open;
-        d.high = +d.high;
-        d.low = +d.low;
-        d.close = +d.close;
-    });
 
 export default class Home extends Component {
 
@@ -55,7 +45,7 @@ export default class Home extends Component {
                         
                         <h2 className="toplist-title">Bitcoin / USD <span>(daily)</span></h2>
                         <p>{/*this.state.currencies.FullName*/}</p>
-                        <ChartCanvas width={width} height={400}
+                        {/*<ChartCanvas width={width} height={400}
                             margin={{left: 50, right: 50, top:10, bottom: 30}} type={type}
                             seriesName="MSFT"
                             data={data}
@@ -67,8 +57,21 @@ export default class Home extends Component {
                                 <YAxis axisAt="left" orient="left" ticks={5} />
                                 <CandlestickSeries />
                             </Chart>
-                        </ChartCanvas>
+                        </ChartCanvas>*/}
                     </div>   
         )
     }
 }
+
+/*
+const parseDate = timeParse("%Y-%m-%d");
+
+tsv("path/to/data.tsv", function(err, data) {
+    data.forEach((d, i) => {
+        d.date = new Date(parseDate(d.date).getTime());
+        d.open = +d.open;
+        d.high = +d.high;
+        d.low = +d.low;
+        d.close = +d.close;
+    });
+})*/
