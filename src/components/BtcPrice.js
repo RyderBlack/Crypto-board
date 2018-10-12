@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import { timeParse } from "d3-time-format";
-//import { tsv } from "d3-request";
+import { tsv } from "d3-request";
 
 
 export default class Home extends Component {
@@ -31,6 +30,17 @@ export default class Home extends Component {
             this.setState({ priceBTC: prices });
           })
         console.log(this.state.priceBTC)
+
+
+tsv(this.state.coins, (err, data) => {
+    data.forEach((d, i) => {
+        d.date = +d.time;
+        d.open = +d.open;
+        d.high = +d.high;
+        d.low = +d.low;
+        d.close = +d.close;
+    });
+})
     }
 
 
@@ -63,15 +73,4 @@ export default class Home extends Component {
     }
 }
 
-/*
-const parseDate = timeParse("%Y-%m-%d");
 
-tsv("path/to/data.tsv", function(err, data) {
-    data.forEach((d, i) => {
-        d.date = new Date(parseDate(d.date).getTime());
-        d.open = +d.open;
-        d.high = +d.high;
-        d.low = +d.low;
-        d.close = +d.close;
-    });
-})*/
