@@ -26,7 +26,7 @@ class CandleStickChart extends React.Component {
 					margin={{ left: 50, right: 50, top: 10, bottom: 30 }}
 					type={type}
 					seriesName="MSFT"
-					data={this.state.coins}
+					data={this.props.data}
 					xAccessor={xAccessor}
 					xScale={scaleTime()}
 					xExtents={xExtents}>
